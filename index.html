@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Projeto 120</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- Importação Bootstrap -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM"
+      crossorigin="anonymous"
+    />
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-geWF76RCwLtnZ8qwWowPQNguL3RmwHVBC9FhGdlKrxdiJJigb/j/68SIy3Te4Bkz"
+      crossorigin="anonymous"
+    ></script>
+    <!-- Importação p5 -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.0.0/p5.js"></script>
+    <!-- Importação ml5 -->
+    <script src="https://unpkg.com/ml5@0.4.3/dist/ml5.min.js"></script>
+    <!-- Link CSS -->
+    <link rel="stylesheet" type="text/css" href="style.css" />
+  </head>
+  <body class="text-center">
+    <h1 class="m-4">Estudo de Caso: <b>Google Lens X MobileNet</b></h1>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">1 - Imagem de teste:</p>
+        <img src="teste1.jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span>Garrafa</span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span>Vazio</span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado1">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+img
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">2 - Imagem de teste:</p>
+        <img src="borracha.jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL2"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN2"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado2">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">3 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (2).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL3"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN3"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado3">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">4 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (3).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL4"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN4"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado4">Empate</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">5 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (4).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL5"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN5"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado5">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">6 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (5).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL6"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN6"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado6">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">7 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (6).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL7"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN7"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado7">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">8 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (7).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL8"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN8"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado8">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">9 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (8).jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL9"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN9"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado9">O google lens acertou</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="w-75 m-auto row card-teste mb-3">
+      <div class="col-4">
+        <p class="">10 - Imagem de teste:</p>
+        <img src="f7fe60b2-b253-40cb-8abb-1c7480803399 (8.jpg" class="m-auto img-teste rounded-4" />
+      </div>
+      <div class="col">
+        <div class="row">
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado Google Lens: <span id="resultadoGL10"></span></p>
+          </div>
+          <div class="col">
+            <p class="bg-secondary-subtle rounded-4">Resultado MobileNet: <span id="resultadoMN10"></span></p>
+          </div>
+          <p>Resultado:</p>
+          <hr />
+          <p id="resultado10">Empate</p>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3>Conclusão:</h3>
+      <p>googlelens  acertou mais vezes 
+        10-2
+      </p>
+    </div>
+    <br /><br />
+    <footer class="">Desenvolvido por felipe</footer>
+  </body>
+</html>
